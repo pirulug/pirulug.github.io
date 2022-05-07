@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PrismJS</title>
+
+  <link rel="stylesheet" href="prism.css">
+  <script src="prism.js"></script>
+</head>
+<body>
+  <p>
+    En este articulo se ofrece, cómo
+    <strong>instalar y configurar PHP 7 y Apache http 2.4 mas MySQL</strong> en el
+    sistema operativo Windows, ya que estos programas permiten el desarrollo de
+    aplicaciones web, pero antes de entrar a la instalación y configuración,
+    quiero mencionar que no utilizaremos Appserv o Xampp y otros que ya son
+    entornos pre-configurados para su fácil instalación y uso, lo que haremos es:
+    armar nuestro propio
+    <a
+      href="https://www.gitmedio.com/como-crear-mi-propio-entorno-de-desarrollo-web-en-c/"
+      ><strong>entorno de desarrollo web</strong></a
+    >, y así para tener las ultimas versiones.
+  </p>
+  <p>A continuación se listan los siguientes linkns de descarga.</p>
+  <ul>
+    <li>
+      <a href="http://httpd.apache.org/download.cgi#apache24">Apache http</a> o
+      <a href="https://www.apachelounge.com/download/">Apachelounge</a> y
+      descargarse resdistribuibles
+      <a href="https://go.microsoft.com/fwlink/?LinkId=615459"
+        >VC++ 2015 32 bit</a
+      >
+      o
+      <a href="https://go.microsoft.com/fwlink/?LinkId=615460"
+        >VC++ 2015 64 bit</a
+      >
+    </li>
+    <li>
+      <a href="http://windows.php.net/download/">PHP</a>, xdebug y
+      <a href="https://www.microsoft.com/en-us/download/details.aspx?id=40784"
+        >VC++ 2014</a
+      >
+    </li>
+    <li>
+      <a href="http://dev.mysql.com/downloads/mysql/5.6.html#downloads">MySQL</a>
+    </li>
+    <li><a href="https://www.phpmyadmin.net/downloads/">PhpMyAdmin</a></li>
+  </ul>
+  <h2 id="paso-nº-1"><strong>Paso Nº 1</strong></h2>
+  <p><strong>Descomprimir Apache HTTP, PHP y MySQL.</strong></p>
+  <p>
+    Al descargar los archivos según a la arquitectura del PC, se debe proceder a
+    descomprimir en el directorio padre *<em>C:\mientorno*</em> y ademas crear
+    tres carpetas mas, y dentro de carpeta www crear un archivo index.html o
+    index.php, de modo que debe quedar de la siguiente Manera.
+  </p>
+  <blockquote>
+    <p>
+      C:\mientorno\Apache<br />
+      C:\mientorno\Php7<br />
+      C:\mientorno\MySQL<br />
+      C:\mientorno\www<br />
+      C:\mientorno\cgi-bin<br />
+      C:\mientorno\temporal
+    </p>
+  </blockquote>
+  <p>
+    <a
+      href="https://www.gitmedio.com/wp-content/uploads/2016/08/Instalar-configurar-PHP-MYSQL-APACHE-HTTP.jpg"
+      ><img
+        src="https://www.gitmedio.com/wp-content/uploads/2016/08/Instalar-configurar-PHP-MYSQL-APACHE-HTTP.jpg"
+        alt="Instalar-configurar-PHP-MYSQL-APACHE-HTTP"
+    /></a>
+  </p>
+  <h2 id="paso-nº-2"><strong>Paso Nº 2</strong></h2>
+  <p><strong>Configurar Archivos httpd.conf, my-default.ini y php.ini</strong></p>
+  <p>
+    En este paso realizaremos cuidadosamente la configuración de cada uno de los
+    archivos, por la cual con un minimo de error la aplicación no podrá ejecutarse
+    correctamente.
+  </p>
+  <p>
+    <strong>Configurando Apache</strong>, nos dirigimos a al ruta
+    C:\mientorno\Apache\conf\ y abrimos en un editor de texto el archivo
+    <strong>httpd.conf</strong> para modificar la siguientes lineas:
+  </p>
+  <pre
+    class="language-conf"
+  ><code class="prism  language-conf">ServerRoot "C:/mientorno/Apache"
+  
+  ServerName localhost #O si no poner 127.0.0.1
+  
+  DocumentRoot "C:/mientorno/www"
+  &lt;Directory "C:/mientorno/www"&gt;
+  
+  &lt;IfModule dir_module&gt;
+   DirectoryIndex index.php index.pl index.cgi index.asp index.shtml index.html index.htm \
+   default.php default.pl default.cgi default.asp default.shtml default.html default.htm \
+   home.php home.pl home.cgi home.asp home.shtml home.html home.htm
+  &lt;/IfModule&gt;
+  
+  ScriptAlias /cgi-bin/ "C:/mientorno/cgi-bin/"
+  
+  &lt;Directory "C:/mientorno/cgi-bin/"&gt;
+  </code></pre>
+  <p>
+    Al modificar las lineas, procedemos a guardar, y presionamos las teclas
+    windows + r, escribimos el comando CMD–&gt;Enter por el cual nos debe mostrar
+    una pantalla de linea de comando, en la cual también escribimos las siguientes
+    lineas de comando que se ve en la imagen.
+  </p>
+  <p>
+    <a href="https://www.gitmedio.com/wp-content/uploads/2016/08/Ejecutar.jpg"
+      ><img
+        src="https://www.gitmedio.com/wp-content/uploads/2016/08/Ejecutar.jpg"
+        alt="Ejecutar Apache con linea de comando CMD"
+    /></a>
+  </p>
+  <p>
+    Para ver que si se esta ejecutando correctamente, abrir el explorador web y
+    escribir localhost en la bara de URL. Si les genera algún error, verificar la
+    configuración en el archivo <strong>httpd.conf.</strong>
+  </p>
+  <p><strong>Configurando PHP</strong></p>
+  <p>
+    Nos dirigimos a la siguiente ruta C:\mientorno\Php7 buscamos y re-nombramos el
+    archivo php.ini-production por el nombre php.ini, una vez renombrado abrir en
+    un editor de texto, y modificamos las siguientes lineas.
+  </p>
+  <pre
+    class="language-ini"
+  ><code class="prism  language-ini"><span class="token constant">zlib.output_compression</span> <span class="token attr-value"><span class="token punctuation">=</span> On</span>
+  <span class="token constant">display_errors</span> <span class="token attr-value"><span class="token punctuation">=</span> On</span>
+  <span class="token comment">;Crear carpeta llamado error en la ruta C:\mientorno\php7.</span>
+  <span class="token constant">error_log</span> <span class="token attr-value"><span class="token punctuation">=</span> "C:\mientorno\php7\error"</span>
+  <span class="token constant">extension_dir</span> <span class="token attr-value"><span class="token punctuation">=</span> "C:\mientorno\Php7\ext"</span>
+  <span class="token constant">enable_dl</span> <span class="token attr-value"><span class="token punctuation">=</span> On</span>
+  <span class="token comment">;Quitar los punto y comas de las siguientes extensiones</span>
+  <span class="token constant">extension</span><span class="token attr-value"><span class="token punctuation">=</span>php_bz2.dll</span>
+  <span class="token constant">extension</span><span class="token attr-value"><span class="token punctuation">=</span>php_curl.dll</span>
+  <span class="token constant">extension</span><span class="token attr-value"><span class="token punctuation">=</span>php_fileinfo.dll</span>
+  
+  <span class="token constant">extension</span><span class="token attr-value"><span class="token punctuation">=</span>php_mbstring.dll</span>
+  <span class="token constant">extension</span><span class="token attr-value"><span class="token punctuation">=</span>php_exif.dll      </span>
+  <span class="token constant">extension</span><span class="token attr-value"><span class="token punctuation">=</span>php_mysqli.dll</span>
+  <span class="token constant">extension</span><span class="token attr-value"><span class="token punctuation">=</span>php_openssl.dll</span>
+  <span class="token constant">extension</span><span class="token attr-value"><span class="token punctuation">=</span>php_pdo_mysql.dll</span>
+  <span class="token constant">extension</span><span class="token attr-value"><span class="token punctuation">=</span>php_pdo_pgsql.dll</span>
+  <span class="token constant">extension</span><span class="token attr-value"><span class="token punctuation">=</span>php_pdo_sqlite.dll</span>
+  
+  <span class="token constant">date.timezone</span> <span class="token attr-value"><span class="token punctuation">=</span>America/La_Paz ;Poner la Zona horaria de tu país</span>
+  
+  <span class="token constant">pdo_mysql.default_socket</span><span class="token attr-value"><span class="token punctuation">=</span> "MySQL"</span>
+  
+  <span class="token constant">session.save_path</span> <span class="token attr-value"><span class="token punctuation">=</span> "C:\mientorno\temporal"</span>
+  
+  <span class="token selector">[XDebug]</span>
+  <span class="token comment">;Descargar la extensión y pegar en la ruta correspondiente </span>
+  <span class="token constant">zend_extension</span> <span class="token attr-value"><span class="token punctuation">=</span> "C:\mientorno\Php7\ext\php_xdebug.dll"</span>
+  <span class="token constant">xdebug.profiler_append</span> <span class="token attr-value"><span class="token punctuation">=</span> 0</span>
+  <span class="token constant">xdebug.profiler_enable</span> <span class="token attr-value"><span class="token punctuation">=</span> 1</span>
+  <span class="token constant">xdebug.profiler_enable_trigger</span> <span class="token attr-value"><span class="token punctuation">=</span> 0</span>
+  <span class="token constant">xdebug.profiler_output_dir</span> <span class="token attr-value"><span class="token punctuation">=</span> "C:\mientorno\temporal"</span>
+  <span class="token constant">xdebug.profiler_output_name</span> <span class="token attr-value"><span class="token punctuation">=</span> "cachegrind.out.%t-%s"</span>
+  <span class="token constant">xdebug.remote_enable</span> <span class="token attr-value"><span class="token punctuation">=</span> On</span>
+  <span class="token constant">xdebug.remote_handler</span> <span class="token attr-value"><span class="token punctuation">=</span> "dbgp"</span>
+  <span class="token constant">xdebug.remote_host</span> <span class="token attr-value"><span class="token punctuation">=</span> "127.0.0.1"</span>
+  <span class="token constant">xdebug.trace_output_dir</span> <span class="token attr-value"><span class="token punctuation">=</span> "C:\mientorno\temporal"</span>
+  <span class="token constant">xdebug.remote_port</span><span class="token attr-value"><span class="token punctuation">=</span>9000</span>
+  </code></pre>
+  <p>
+    Una vez reemplazado la configuración por defecto guardar el archivo ini, y nos
+    dirigimos de nuevo al archivo <strong>httpd.conf</strong> del Apache y
+    agregamos la final del archivo las siguientes lineas de código.
+  </p>
+  <pre
+    class="language-conf"
+  ><code class="prism  language-conf">LoadFile C:\mientorno\Php7\php7ts.dll
+  LoadFile C:\mientorno\Php7\libpq.dll
+  LoadModule php7_module "C:\mientorno\Php7\php7apache2_4.dll"
+  AddHandler application/x-httpd-php .php
+  AddType application/x-httpd-php .html .html .asp
+  PHPIniDir "C:\mientorno\Php7"
+  </code></pre>
+  <p>
+    Una vez guardado el archivo <strong>httpd.conf</strong>, copiamos el archivo
+    dll C:\mientorno\Php7\libssh2.dll a la siguiente ruta
+    C:\mientorno\Apache\bin\libssh2.dll.
+  </p>
+  <p>
+    Donde se encuentra la carpeta www de nuestro entorno de desarrollo crear un
+    archivo index.php con el codigo &lt;?php echo phpinfo(); ?&gt;
+  </p>
+  <p>
+    Una vez realizada las cuyas operaciones, ejecutar desde la linea de comando
+    CMD, tal como hemos visto en la anterior ejemplo de imagen. Al escribir la
+    palabra localhost en la barra de URL del explorador, debería de ejecutarse
+    correctamente mostrando información sobre PHP7 y demás.
+  </p>
+  <p><strong>Configurar MySQL</strong></p>
+  <p>
+    Si descargaste la versión MySQL 5.7, buscar el archivo my-default.ini, crear
+    la carpeta llamado data, y agregar las siguientes lineas en el archivo ini:
+  </p>
+  <pre><code>basedir =C:/mientorno/MySQL
+  datadir =C:/mientorno/MySQL/data
+  </code></pre>
+  <p>
+    En la pantalla de linea de comando ejecutar el siguiente comando, la ejecución
+    tardara unos cuantos segundos:
+  </p>
+  <p><code>C:\mientorno\MySQL\bin&gt;mysqld --initialize-insecure</code></p>
+  <p>
+    Cuando finalice al invocar, iniciar el servidor MySQL con la siguiente linea
+    de comando:
+  </p>
+  <p>
+    <code
+      >C:\mientorno\MySQL\bin&gt;mysqld
+      --defaults-file=C:\mientorno\MySQL\my-default.ini --console</code
+    >
+  </p>
+  <p>
+    Abrir una nueva ventana de consola y ejecutar el siguiente linea de comando:
+    <em>C:\mientorno\MySQL\bin&gt;mysql -u root -p</em> y le pedirá que ingrese
+    pasword, simplemente presione la tecla enter, y debería de acceder a la base
+    de datos donde podremos ejecutar el siguiente comando SQL para crear el
+    usuario:
+  </p>
+  <pre
+    class="language-bash"
+  ><code class="prism  language-bash">ALTER USER <span class="token string">'root'</span>@<span class="token string">'localhost'</span> IDENTIFIED BY <span class="token string">''</span><span class="token punctuation">;</span>
+  </code></pre>
+  <p>
+    Por otra parte si se descargó la versión MySQL 5.5.51 este se distribuye pre
+    configurado, por la cual no hay la necesidad de configurar manualmente.
+  </p>
+  <p>
+    Par iniciar la versión MySQL 5.5.51 pegamos la siguiente linea de comando.
+  </p>
+  <pre
+    class="language-bash"
+  ><code class="prism  language-bash">mysqld --defaults-file<span class="token operator">=</span>C:\mientorno\MySQL\my-large.ini --console
+  </code></pre>
+  <p>
+    <a
+      href="https://www.gitmedio.com/wp-content/uploads/2016/08/Iniciar-mysql-desde-linea-de-comando.jpg"
+      ><img
+        src="https://www.gitmedio.com/wp-content/uploads/2016/08/Iniciar-mysql-desde-linea-de-comando.jpg"
+        alt="Iniciar-mysql-desde-linea-de-comando"
+    /></a>
+  </p>
+  <p>
+    Para probar la ejecución correcta, abrir un nuevo ventana de consola, y
+    ejecutar con el siguiente linea de comando:<br />
+    C:\mientorno\mysql\bin&gt;mysql, lo cual tendría que permitir ejecutar la
+    consulta SQL.
+  </p>
+  <h2 id="paso-nº-3">Paso Nº 3</h2>
+  <p><strong>Configurar PhpMyAdmin</strong></p>
+  <p>
+    En el directorio padre crear una nueva carpeta PhpMyAdmin y descomprimir el
+    archivo descargado phpMyAdmin-4.6.4-all-languages.zip, para configurar crear
+    un nuevo archivo con el nombre config.inc.php y pegar el siguiente linea de
+    código.
+  </p>
+  <pre
+    class="language-php"
+  ><code class="prism  language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+  <span class="token variable">$cfg</span><span class="token punctuation">[</span><span class="token string">'blowfish_secret'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'a8b7c6d'</span><span class="token punctuation">;</span> 
+  
+  <span class="token variable">$i</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token variable">$i</span><span class="token operator">++</span><span class="token punctuation">;</span>
+  
+  <span class="token variable">$cfg</span><span class="token punctuation">[</span><span class="token string">'Servers'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token variable">$i</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'auth_type'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'config'</span><span class="token punctuation">;</span>
+  <span class="token variable">$cfg</span><span class="token punctuation">[</span><span class="token string">'Servers'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token variable">$i</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'user'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'root'</span><span class="token punctuation">;</span>
+  <span class="token variable">$cfg</span><span class="token punctuation">[</span><span class="token string">'Servers'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token variable">$i</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'password'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>
+  <span class="token variable">$cfg</span><span class="token punctuation">[</span><span class="token string">'Servers'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token variable">$i</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'extension'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'mysqli'</span><span class="token punctuation">;</span>
+  <span class="token variable">$cfg</span><span class="token punctuation">[</span><span class="token string">'Servers'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token variable">$i</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'AllowNoPassword'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+  <span class="token variable">$cfg</span><span class="token punctuation">[</span><span class="token string">'Lang'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>
+  <span class="token variable">$cfg</span><span class="token punctuation">[</span><span class="token string">'Servers'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token variable">$i</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'host'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'127.0.0.1'</span><span class="token punctuation">;</span>
+  <span class="token variable">$cfg</span><span class="token punctuation">[</span><span class="token string">'Servers'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token variable">$i</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'connect_type'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'tcp'</span><span class="token punctuation">;</span>
+  <span class="token variable">$cfg</span><span class="token punctuation">[</span><span class="token string">'Servers'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token variable">$i</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'controluser'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'pma'</span><span class="token punctuation">;</span>
+  <span class="token variable">$cfg</span><span class="token punctuation">[</span><span class="token string">'Servers'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token variable">$i</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'controlpass'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>
+  <span class="token variable">$cfg</span><span class="token punctuation">[</span><span class="token string">'UploadDir'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>
+  <span class="token variable">$cfg</span><span class="token punctuation">[</span><span class="token string">'SaveDir'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>
+  
+  <span class="token delimiter important">?&gt;</span></span>
+  </code></pre>
+  <p>
+    Por ultimo también agregamos al final del el archivo de configuración
+    <strong>httpd.conf</strong> de Apache, las siguientes lineas:
+  </p>
+  <pre
+    class="language-conf"
+  ><code class="prism  language-conf">#---------Configuración para PHPMYADMIN----------
+  Alias /phpmyadmin "C:/mientorno/PhpMyAdmin"
+  &lt;Directory "C:/mientorno/PhpMyAdmin"&gt;
+  AllowOverride All
+  Require all granted
+  &lt;/Directory&gt;
+  </code></pre>
+  <p>
+    Para comprobar la configuracion correcta de phpMyAdmin escribir
+    <a href="http://localhost/phpmyadmin/">http://localhost/phpmyadmin/</a> en la
+    barra de url del explorador web.
+  </p>
+  <p>
+    Toda la instalación y configuracion que se realiza en este articulo debería
+    funcionar correctamente en su PC, si es que ha realizado paso a paso, caso
+    contrario realizar comentario en el pie de este articulo.
+  </p>
+  
+</body>
+</html>
