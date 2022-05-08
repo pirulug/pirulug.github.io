@@ -1,3 +1,14 @@
+---
+extends: _layouts.post
+section: content
+title: Comandos Git
+date: 2022-05-08
+author: Pirulug
+description: Comandos git.
+featured: false
+categories: [git]
+---
+
 ## Configuración Básica
 
 Configurar Nombre que salen en los commits
