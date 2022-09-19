@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>AdminPiru | Acordion</title>
+    <!-- Css Bootstrap-->
+    <link rel="stylesheet" href="css/app.css">
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="sidebar" id="sidebar">
+        <div class="sidebar-content js-simplebar">
+          <!-- sidebar logo--><a class="sidebar-logo" href="#">AdminPiru</a>
+          <!-- sidebar user-->
+          <div class="sidebar-user">
+            <div class="sidebar-user-img"><img src="https://ui-avatars.com/api/?name=Pirulug" alt=""></div>
+            <div class="sidebar-user-title"><span>Admin</span>
+              <p>Pirulug</p>
+            </div><a class="sidebar-user-btn"><i data-feather="log-out"></i></a>
+          </div>
+          <ul class="sidebar-nav">
+                  <li class="sidebar-header">Pages</li>
+                  <li class="sidebar-item active"><a class="sidebar-link" href="index.html"><i class="align-middle" data-feather="sliders"></i><span class="align-middle">Dashboard</span></a></li>
+                  <li class="sidebar-item"><a class="sidebar-link collapsed" data-bs-target="#pages" data-bs-toggle="collapse"><i data-feather="file"></i><span class="align-middle">Pages</span></a>
+                    <ul class="sidebar-dropdown list-unstyled collapse" id="pages" data-bs-parent="#sidebar">       
+                            <li class="sidebar-item"><a class="sidebar-link" href="pages-settings.html">Settings</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="pages-blank.html">Blank Page</a></li>
+                    </ul>
+                  </li>
+                  <li class="sidebar-item"><a class="sidebar-link" href="pages-profile.html"><i class="align-middle" data-feather="user"></i><span class="align-middle">Profile</span></a></li>
+                  <li class="sidebar-item"><a class="sidebar-link collapsed" data-bs-target="#auth" data-bs-toggle="collapse"><i data-feather="users"></i><span class="align-middle">Auth</span></a>
+                    <ul class="sidebar-dropdown list-unstyled collapse" id="auth" data-bs-parent="#sidebar">       
+                            <li class="sidebar-item"><a class="sidebar-link" href="pages-sign-in.html">Sign In</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="pages-sign-up.html">Sign Up</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="pages-reset-password.html">Reset Password</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="pages-recover-password.html">Reccover Password</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="pages-404.html">404</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="pages-500.html">500</a></li>
+                    </ul>
+                  </li>
+                  <li class="sidebar-header">Tools &amp; Components</li>
+                  <li class="sidebar-item"><a class="sidebar-link collapsed" data-bs-target="#ui-elements" data-bs-toggle="collapse"><i data-feather="users"></i><span class="align-middle">UI Elements</span></a>
+                    <ul class="sidebar-dropdown list-unstyled collapse" id="ui-elements" data-bs-parent="#sidebar">       
+                            <li class="sidebar-item"><a class="sidebar-link" href="ui-acordion.html">Acordion</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="ui-alerts.html">Alerts</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="ui-badge.html">Badges</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="ui-buttons.html">Buttons</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="ui-forms.html">Forms</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="ui-cards.html">Cards</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="ui-typography.html">Typography</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="ui-images.html">Images</a></li>
+                            <li class="sidebar-item"><a class="sidebar-link" href="ui-tables.html">Tables</a></li>
+                    </ul>
+                  </li>
+                  <li class="sidebar-item"><a class="sidebar-link" href="icons-feather.html"><i class="align-middle" data-feather="coffee"></i><span class="align-middle">Icons</span></a></li>
+                  <li class="sidebar-header">Plugins &amp; Addons</li>
+                  <li class="sidebar-item"><a class="sidebar-link" href="charts-chartjs.html"><i class="align-middle" data-feather="bar-chart-2"></i><span class="align-middle">Charts</span></a></li>
+                  <li class="sidebar-item"><a class="sidebar-link" href="maps-google.html"><i class="align-middle" data-feather="map"></i><span class="align-middle">Maps</span></a></li>
+                  <li class="sidebar-item"><a class="sidebar-link" href="widget.html"><i class="align-middle" data-feather="map"></i><span class="align-middle">Widget</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <div id="sidebar-overlay"></div>
+      <!-- main-->
+      <div class="main" id="main">
+<nav class="navtop">
+  <ul class="nav">
+    <li class="nav-item"><a class="nav-link" id="navtop-btn"><i class="fa fa-bars"></i></a></li>
+    <li class="nav-item"><a class="nav-link active d-none d-sm-inline-block" href="#">Home</a></li>
+    <li class="nav-item"><a class="nav-link d-none d-sm-inline-block" href="#">Contact</a></li>
+    <li class="nav-item"><a class="nav-link disabled d-none d-sm-inline-block">Otros</a></li>
+    <li class="nav-item"><a class="nav-link" id="dark-mode" href="#"><i class="fa fa-moon-o"></i></a></li>
+  </ul>
+  <ul class="nav">
+    <li class="nav-item"><a class="nav-link" data-bs-toggle="dropdown" href="#"> <i class="fa fa-comments"></i></a>
+      <ul class="dropdown-menu dropdown-menu-end"><span class="dropdown-item dropdown-header">15 Notifications</span>
+        <div class="dropdown-divider"></div><a class="dropdown-item" href="#"><i class="fas fa-envelope mr-2"></i> 4 new messages<span class="float-right text-muted text-sm">3 mins</span></a>
+        <div class="dropdown-divider"></div><a class="dropdown-item" href="#"><i class="fas fa-users mr-2"></i> 8 friend requests<span class="float-right text-muted text-sm">12 hours</span></a>
+        <div class="dropdown-divider"></div><a class="dropdown-item" href="#"><i class="fas fa-file mr-2"></i> 3 new reports<span class="float-right text-muted text-sm">2 days</span></a>
+        <div class="dropdown-divider"></div><a class="dropdown-item dropdown-footer" href="#">See All Notifications</a>
+      </ul>
+    </li>
+    <li class="nav-item dropdown dropdown-menu-end"><a class="nav-link" data-bs-toggle="dropdown" href="#"> <i data-feather="bell"></i></a>
+      <ul class="dropdown-menu"><span class="dropdown-item dropdown-header">15 Notifications</span>
+        <div class="dropdown-divider"></div><a class="dropdown-item" href="#"><i class="fas fa-envelope mr-2"></i> 4 new messages<span class="float-right text-muted text-sm">3 mins</span></a>
+        <div class="dropdown-divider"></div><a class="dropdown-item" href="#"><i class="fas fa-users mr-2"></i> 8 friend requests<span class="float-right text-muted text-sm">12 hours</span></a>
+        <div class="dropdown-divider"></div><a class="dropdown-item" href="#"><i class="fas fa-file mr-2"></i> 3 new reports<span class="float-right text-muted text-sm">2 days</span></a>
+        <div class="dropdown-divider"></div><a class="dropdown-item dropdown-footer" href="#">See All Notifications</a>
+      </ul>
+    </li>
+    <li class="nav-item dropdown"><a class="nav-link" data-bs-toggle="dropdown" href="#"> 
+        <div class="d-flex align-items-center"><img class="avatar rounded-circle" src="https://ui-avatars.com/api/?name=Pirulug" alt=""><span class="ms-2 text-dark align-items-center d-none d-lg-block">Pirulug</span></div></a>
+      <ul class="dropdown-menu dropdown-menu-end">
+        <li><a class="dropdown-item" href="#">Profile</a></li>
+        <li><a class="dropdown-item" href="#">Settings</a></li>
+        <li><a class="dropdown-item" href="#">Messages</a></li>
+        <li>
+          <hr class="dropdown-divider">
+        </li>
+        <li><a class="dropdown-item" href="#">Logout</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        <main class="content">
+          <section class="d-flex justify-content-between align-items-center py-1 mb-3"> 
+            <h1 class="h4 d-inline align-middle m-0">Acordion      </h1>
+            <ol class="breadcrumb m-0">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Acordion</li>
+            </ol>
+          </section>
+          <div class="card mb-3">
+            <div class="card-header">
+              <h5 class="card-title">Ejemplo</h5>
+              <h6 class="card-subtitle text-muted">Haga clic en los acordeones a continuación para expandir/contraer el contenido del acordeón.</h6>
+            </div>
+            <div class="card-body">
+              <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Accordion Item #1</button>
+                  </h2>
+                  <div class="accordion-collapse collapse show" id="collapseOne" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body"><strong>This is the first item&apos;s accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It&apos;s also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.</div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Accordion Item #2</button>
+                  </h2>
+                  <div class="accordion-collapse collapse" id="collapseTwo" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                    <div class="accordion-body"><strong>This is the second item&apos;s accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It&apos;s also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.</div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Accordion Item #3</button>
+                  </h2>
+                  <div class="accordion-collapse collapse" id="collapseThree" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                    <div class="accordion-body"><strong>This is the third item&apos;s accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It&apos;s also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-3">
+            <div class="card-header"> 
+              <h5 class="card-title">Flush</h5>
+              <h6 class="card-subtitle text-muted">Add <code>.accordion-flush </code>to remove the default <code>background-color</code>, some borders, and some rounded corners to render accordions edge-to-edge with their parent container.</h6>
+            </div>
+            <div class="card-body">
+              <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-headingOne">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">Accordion Item #1</button>
+                  </h2>
+                  <div class="accordion-collapse collapse" id="flush-collapseOne" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item&apos;s accordion body.</div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">Accordion Item #2</button>
+                  </h2>
+                  <div class="accordion-collapse collapse" id="flush-collapseTwo" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item&apos;s accordion body. Let&apos;s imagine this being filled with some actual content.</div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">Accordion Item #3</button>
+                  </h2>
+                  <div class="accordion-collapse collapse" id="flush-collapseThree" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item&apos;s accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+        <footer class="footer">
+          <p><a class="text-muted" href="#" target="_blank"><strong>AdminPiru</strong></a> &copy;<i>Template style dashboard.</i></p>
+          <ul class="list-inline m-0 justify-content-end">
+            <li class="list-inline-item"><a class="text-muted" href="#" target="_blank">Support</a></li>
+            <li class="list-inline-item"><a class="text-muted" href="#" target="_blank">Help Center</a></li>
+            <li class="list-inline-item"><a class="text-muted" href="#" target="_blank">Privacy</a></li>
+            <li class="list-inline-item"><a class="text-muted" href="#" target="_blank">Terms</a></li>
+            <li class="list-inline-item"><a class="text-muted" href="#" target="_blank">Terms</a></li>
+            <li class="list-inline-item"><a class="text-muted" href="#" target="_blank">Terms</a></li>
+          </ul>
+        </footer>
+      </div>
+    </div>
+    <!-- Js Bootstrap-->
+    <script src="js/app.js"></script>
+  </body>
+</html>
