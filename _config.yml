@@ -7,9 +7,9 @@ title: Pirulug
 subtitle: ''
 description: ''
 keywords:
-author: John Doe
+author: Pirulug
 language: en
-timezone: ''
+timezone: 'America/Lima'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
@@ -44,14 +44,14 @@ post_asset_folder: false
 relative_link: false
 future: true
 highlight:
-  enable: true
+  enable: false
   line_number: true
   auto_detect: false
   tab_replace: ''
   wrap: true
   hljs: false
 prismjs:
-  enable: false
+  enable: true
   preprocess: true
   line_number: true
   tab_replace: ''
