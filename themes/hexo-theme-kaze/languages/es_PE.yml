@@ -1,0 +1,55 @@
+home:
+  title: Inicio
+
+archive:
+  title: Archivos
+
+about:
+  title: About
+
+friends:
+  title: Amigos
+
+artitalk:
+  title: artitalk
+
+posts:
+  title: Posts
+
+categories:
+  title: Categorías
+  total: Total posts
+
+tags:
+  title: Tags
+  total: Total tags
+
+hottags:
+  title: hot tags
+
+readmore:
+  title: Read Details
+
+recentposts:
+  title: Recent Posts
+
+toc:
+  title: TOC
+
+prev_page:
+  title: Anterior
+
+next_page:
+  title: Siguiente
+
+prev_post:
+  title: Anterior
+
+next_post:
+  title: Siguiente
+
+words_count:
+  title: words
+
+min2read:
+  title: mins
