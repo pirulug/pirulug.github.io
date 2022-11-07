@@ -145,7 +145,7 @@ comment:
     avatar: mp
     meta: ["nick", "mail", "link"]
     requiredMeta: []
-    lang: zh-CN
+    lang: es_PE
     dark: html[data-user-color-scheme="dark"]
     login: enable
     wordLimit: 0
