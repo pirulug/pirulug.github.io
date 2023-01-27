@@ -3,7 +3,7 @@ title: Bootstrap & Vite
 date: 2022-11-02 23:05:04
 banner_img: https://getbootstrap.com/docs/5.2/assets/img/guides/bootstrap-vite.png
 banner_img_set: https://getbootstrap.com/docs/5.2/assets/img/guides/bootstrap-vite.png
-tags: bootstrap vite
+tags: Bootstrap
 ---
 
 **Want to skip to the end?**  Download the source code and working demo for this guide from the  [twbs/examples repository](https://github.com/twbs/examples/tree/main/vite). You can also  [open the example in StackBlitz](https://stackblitz.com/github/twbs/examples/tree/main/vite?file=index.html)  for live editing.

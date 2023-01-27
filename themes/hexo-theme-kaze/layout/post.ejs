@@ -71,7 +71,7 @@
         class="post-note note-<%= theme.copyright.style || 'warning' %> copyright" 
         style="margin-top: 42px">
         <p>
-          <span style="font-weight: bold;">作者：</span><a 
+          <span style="font-weight: bold;">Autor：</span><a 
             target="_blank" 
             rel="nofollow noopener noreferrer" 
             href="<%= url_for('/about') %>">
@@ -79,14 +79,14 @@
           </a>
         </p>
         <p>
-          <span style="font-weight: bold;">文章链接：</span><a 
+          <span style="font-weight: bold;">Enlace del artículo：</span><a 
             target="_blank" 
             rel="nofollow noopener noreferrer" 
             href="<%= url_for(page.permalink) %>">
             <%= page.permalink %>
           </a>
         </p>
-        <p><span style="font-weight: bold;">版权声明：</span><%- theme.copyright.declare %></p>
+        <p><span style="font-weight: bold;">Aviso de copyright: </span><%- theme.copyright.declare %></p>
       </div>
     <% } %>
   </div>
